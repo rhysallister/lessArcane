@@ -2,22 +2,10 @@ lessArcane
 ===========
 With lessArcane you can share your gists dumped from gistbox
 as a browseable library.
+`lessArcane.js` is written in coffeescript and compiled to js.
 
-The json retrieved from gistbox uses a single backslash to represent a newline
-::
+We edit the resulting output just slightly by setting the json equal to 
+a variable called `data`. If you look at the first line of our `sample.json`
+you'll see what we did.
 
-     This is my text and now for a newline\ everthing will occur on a new line
-
-Unfortunately the json spec prefers this pattern::
-
-     This is my text and now for a newline\\neverything will occur on a new line
-
-To fix this we have to preprocess `sample.json` to replace the gistbox style with the
-json style as follows::
-
-     %s/\\\ /\\n/g 
-
-The result is `sample-processed.json` which respects newlines.
-
-
-
+The `sample.json` file is called by `index.html` and processed by `lessArcane.js`
