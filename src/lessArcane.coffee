@@ -13,10 +13,18 @@ displayGists = ->
   $("#right").hide()
   $("#right").text('')
   my_item = $(@).attr('my_item')
+<<<<<<< HEAD
   for i in  data.group.group_labels[my_item].gist_ids
     for q in data.group.gists
       if q.unique_id is i
         $("#right").append("<pre>#{q.description}</pre> <hr>")
+=======
+  for gist_id in  allthedata.group.group_labels[my_item].gist_ids
+    for gist in allthedata.group.gists
+      if gist.unique_id is gist_id
+        for file in gist.files
+          $("#right").append("<pre><code class='language-markup'>#{file.content}</code></pre> <hr>")
+>>>>>>> 53cd8a2... initial integration of prism.css
   $("#right").fadeIn()
 
 
