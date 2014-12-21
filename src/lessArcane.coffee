@@ -16,7 +16,7 @@ displayGists = ->
     for gist in allthedata.group.gists
       if gist.unique_id is gist_id
         for file in gist.files
-          $("#right").append("<pre><code class='language-markup'>#{file.content}</code></pre> <hr>")
+          $("#right").append("<pre><code class='language-markup'>#{Prism.highlight(file.content,Prism.languages.markup)}</code></pre> <hr>")
   $("#right").fadeIn()
 
 
