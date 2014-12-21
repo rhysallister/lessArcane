@@ -9,17 +9,17 @@ bottle.debug(True)
 
 @route('/')
 def lessArcane():
-  return template('index.html')
+  return template('static/index.html')
   
 @route('/js/<jsfile>')
 def js(jsfile):
   response.content_type = 'application/javascript'
-  return template('js/%s' % jsfile)
+  return template('static/js/%s' % jsfile)
 
 @route('/css/<cssfile>')
 def css(cssfile):
   response.content_type = 'text/css'
-  return template('css/%s' % cssfile)
+  return template('static/css/%s' % cssfile)
     
 
 

@@ -1,5 +1,9 @@
+<<<<<<< HEAD:js/lessArcane.coffee
 #console.log allthedata
 
+=======
+allthedata = data
+>>>>>>> fbe9c3884f389a371dc0755b5bca89a534a586cb:src/lessArcane.coffee
 listGroupLabels = ->
   $(@).remove()
   c = -1
