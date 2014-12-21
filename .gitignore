@@ -65,3 +65,7 @@ docs/_build/
 # PyBuilder
 target/
 
+*.swp
+*.pyc
+la.py
+*.py
