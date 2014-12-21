@@ -1,5 +1,7 @@
 (function() {
-  var displayGists, listGroupLabels;
+  var allthedata, displayGists, listGroupLabels;
+
+  allthedata = data;
 
   listGroupLabels = function() {
     var c, k, _i, _len, _ref, _results;
@@ -16,20 +18,24 @@
   };
 
   displayGists = function() {
-    var i, my_item, q, _i, _j, _len, _len2, _ref, _ref2;
+    var file, gist, gist_id, my_item, _i, _j, _k, _len, _len2, _len3, _ref, _ref2, _ref3;
     $('.active').removeClass('active');
     $(this).addClass('active');
     $("#right").hide();
     $("#right").text('');
     my_item = $(this).attr('my_item');
-    _ref = data.group.group_labels[my_item].gist_ids;
+    _ref = allthedata.group.group_labels[my_item].gist_ids;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      i = _ref[_i];
-      _ref2 = data.group.gists;
+      gist_id = _ref[_i];
+      _ref2 = allthedata.group.gists;
       for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
-        q = _ref2[_j];
-        if (q.unique_id === i) {
-          $("#right").append("<pre>" + q.description + "</pre> <hr>");
+        gist = _ref2[_j];
+        if (gist.unique_id === gist_id) {
+          _ref3 = gist.files;
+          for (_k = 0, _len3 = _ref3.length; _k < _len3; _k++) {
+            file = _ref3[_k];
+            $("#right").append("<pre><code class='language-markup'>" + file.content + "</code></pre> <hr>");
+          }
         }
       }
     }
