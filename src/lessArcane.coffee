@@ -1,4 +1,3 @@
-allthedata = data
 listGroupLabels = ->
   $(@).remove()
   c = -1
@@ -20,11 +19,6 @@ displayGists = ->
           $("#right").append("<pre><code class='language-markup'>#{Prism.highlight(file.content,Prism.languages.markup)}</code></pre> <hr>")
   
   $("#right").fadeIn()
-
-
-
-  $("#right").fadeIn()
-
 
 $ ->
   $("body").on('click',"#p", listGroupLabels)
