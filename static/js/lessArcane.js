@@ -29,13 +29,15 @@
       for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
         gist = _ref2[_j];
         if (gist.unique_id === gist_id) {
+          $("#right").append("<p>" + gist.description + "</p>");
           _ref3 = gist.files;
           for (_k = 0, _len3 = _ref3.length; _k < _len3; _k++) {
             file = _ref3[_k];
             gist_content = file.content;
             gist_file = Prism.highlight(gist_content, Prism.languages.markup);
-            $("#right").append("<pre><code class='language-markup'>" + gist_file + "</code></pre> <hr>");
+            $("#right").append("<pre><code class='language-markup'>" + gist_file + "</code></pre>");
           }
+          $("#right").append("<hr>");
         }
       }
     }
