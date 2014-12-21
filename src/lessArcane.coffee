@@ -1,9 +1,7 @@
-
 listGroupLabels = ->
   $(@).remove()
   c = -1
   for k in data.group.group_labels
-    #console.log "name: #{k.name} "
     c += 1
     $("#leftlist").append("""<a class="list-group-item" my_item="#{c}">#{k.name}  <span class="badge">#{k.gist_ids.length}</span></a>""")
     
@@ -13,13 +11,14 @@ displayGists = ->
   $("#right").hide()
   $("#right").text('')
   my_item = $(@).attr('my_item')
-  for i in  data.group.group_labels[my_item].gist_ids
-    for q in data.group.gists
-      if q.unique_id is i
-        $("#right").append("<pre>#{q.description}</pre> <hr>")
+
+  for gist_id in allthedata.group.group_labels[my_item].gist_ids
+    for gist in allthedata.group.gists
+      if gist.unique_id is gist_id
+        for file in gist.files
+          $("#right").append("<pre><code class='language-markup'>#{file.content}</code></pre> <hr>")
+
   $("#right").fadeIn()
-
-
 
 
 
