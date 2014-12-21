@@ -23,10 +23,10 @@
     $("#right").hide();
     $("#right").text('');
     my_item = $(this).attr('my_item');
-    _ref = allthedata.group.group_labels[my_item].gist_ids;
+    _ref = data.group.group_labels[my_item].gist_ids;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       gist_id = _ref[_i];
-      _ref1 = allthedata.group.gists;
+      _ref1 = data.group.gists;
       for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
         gist = _ref1[_j];
         if (gist.unique_id === gist_id) {

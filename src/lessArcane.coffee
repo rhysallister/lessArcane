@@ -12,14 +12,13 @@ displayGists = ->
   $("#right").text('')
   my_item = $(@).attr('my_item')
 
-  for gist_id in allthedata.group.group_labels[my_item].gist_ids
-    for gist in allthedata.group.gists
+  for gist_id in data.group.group_labels[my_item].gist_ids
+    for gist in data.group.gists
       if gist.unique_id is gist_id
         for file in gist.files
           $("#right").append("<pre><code class='language-markup'>#{file.content}</code></pre> <hr>")
 
   $("#right").fadeIn()
-
 
 
 $ ->
