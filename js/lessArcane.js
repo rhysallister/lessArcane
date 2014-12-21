@@ -6,40 +6,44 @@ var allthedata = data;
 
 listGroupLabels = function() {
   var c, k, _i, _len, _ref, _results;
-  $(this).remove();
   c = -1;
   _ref = allthedata.group.group_labels;
   _results = [];
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {
     k = _ref[_i];
     c += 1;
-    _results.push($("#leftlist").append("<a class=\"list-group-item\" my_item=\"" + c + "\">" + k.name + "  <span class=\"badge\">" + k.gist_ids.length + "</span></a>"));
+    _results.push($("#leftlist").append("<li class=\"list-group-item\" my_item=\"" + c + "\">" + k.name + "  <span class=\"badge\">" + k.gist_ids.length + "</span></li>"));
   }
   return _results;
 };
 
 displayGists = function() {
-  var i, my_item, q, _i, _j, _len, _len1, _ref, _ref1;
-  $('.active').removeClass('active');
-  $(this).addClass('active');
-  $("#right").hide();
+  var i, my_item, q, _i, _len, _ref, _results;
   $("#right").text('');
   my_item = $(this).attr('my_item');
   _ref = allthedata.group.group_labels[my_item].gist_ids;
+  _results = [];
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {
     i = _ref[_i];
-    _ref1 = allthedata.group.gists;
-    for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-      q = _ref1[_j];
-      if (q.unique_id === i) {
-        $("#right").append("<pre>" + q.description + "</pre> <hr>");
+    _results.push((function() {
+      var _j, _len1, _ref1, _results1;
+      _ref1 = allthedata.group.gists;
+      _results1 = [];
+      for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+        q = _ref1[_j];
+        if (q.unique_id === i) {
+          _results1.push($("#right").append("<pre>" + q.description + "</pre> <hr>"));
+        } else {
+          _results1.push(void 0);
+        }
       }
-    }
+      return _results1;
+    })());
   }
-  return $("#right").fadeIn();
+  return _results;
 };
 
 $(function() {
   $("body").on('click', "#p", listGroupLabels);
-  return $("body").on('click', "a", displayGists);
+  return $("body").on('click', "li", displayGists);
 });
