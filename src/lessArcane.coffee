@@ -16,12 +16,12 @@ displayGists = ->
     for gist in data.group.gists
       if gist.unique_id is gist_id
         for file in gist.files
-          $("#right").append("<pre><code class='language-markup'>#{Prism.highlight(file.content,Prism.languages.markup)}</code></pre> <hr>")
+          gist_content = file.content
+          gist_file = Prism.highlight(gist_content,Prism.languages.markup)
+          $("#right").append("<pre><code class='language-markup'>#{gist_file}</code></pre> <hr>")
   
   $("#right").fadeIn()
 
 $ ->
   $("body").on('click',"#p", listGroupLabels)
   $("body").on('click',"a", displayGists)
-  
-
