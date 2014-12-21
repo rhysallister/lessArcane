@@ -1,9 +1,9 @@
-console.log allthedata
+#console.log allthedata
 
 listGroupLabels = ->
   $(@).remove()
   c = -1
-  for k in allthedata.group.group_labels
+  for k in data.group.group_labels
     #console.log "name: #{k.name} "
     c += 1
     $("#leftlist").append("""<a class="list-group-item" my_item="#{c}">#{k.name}  <span class="badge">#{k.gist_ids.length}</span></a>""")
@@ -19,6 +19,10 @@ displayGists = ->
       if q.unique_id is i
         $("#right").append("<pre>#{q.description}</pre> <hr>")
   $("#right").fadeIn()
+
+
+
+
 
 $ ->
   $("body").on('click',"#p", listGroupLabels)
