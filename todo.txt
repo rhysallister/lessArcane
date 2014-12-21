@@ -1,0 +1,2 @@
+- create a chrome add-on
+- make hyperlinks in description clickable
