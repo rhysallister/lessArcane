@@ -1,5 +1,4 @@
-console.log allthedata
-
+allthedata = data
 listGroupLabels = ->
   $(@).remove()
   c = -1
