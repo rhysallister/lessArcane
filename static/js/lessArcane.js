@@ -34,7 +34,7 @@
           _ref3 = gist.files;
           for (_k = 0, _len3 = _ref3.length; _k < _len3; _k++) {
             file = _ref3[_k];
-            $("#right").append("<pre><code class='language-markup'>" + file.content + "</code></pre> <hr>");
+            $("#right").append("<pre><code class='language-markup'>" + (Prism.highlight(file.content, Prism.languages.markup)) + "</code></pre> <hr>");
           }
         }
       }
