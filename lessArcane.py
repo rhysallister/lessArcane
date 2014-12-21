@@ -15,10 +15,14 @@ def lessArcane():
 def js(jsfile):
   response.content_type = 'application/javascript'
   return template('js/%s' % jsfile)
+
+@route('/css/<cssfile>')
+def css(cssfile):
+  response.content_type = 'text/css'
+  return template('css/%s' % cssfile)
     
 
 
 
 
 run(host=os.getenv("IP", '0.0.0.0'),port=int(os.getenv("PORT", 8080) ),reloader=True)
-
