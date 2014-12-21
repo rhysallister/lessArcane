@@ -1,4 +1,12 @@
 env/
 *.swp
 *.pyc
+<<<<<<< HEAD
 la.py
+<<<<<<< HEAD
+*.py
+=======
+=======
+*.py
+>>>>>>> pigeonflight-master
+>>>>>>> d097305e110d2f2fb7e2dd7fc2dd90bc46f80bed
