@@ -12,13 +12,15 @@ listGroupLabels = function() {
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {
     k = _ref[_i];
     c += 1;
-    _results.push($("#leftlist").append("<li class=\"list-group-item\" my_item=\"" + c + "\">" + k.name + "  <span class=\"badge\">" + k.gist_ids.length + "</span></li>"));
+    _results.push($("#leftlist").append("<a class=\"list-group-item\" my_item=\"" + c + "\">" + k.name + "  <span class=\"badge\">" + k.gist_ids.length + "</span></a>"));
   }
   return _results;
 };
 
 displayGists = function() {
   var i, my_item, q, _i, _j, _len, _len1, _ref, _ref1;
+  $('.active').removeClass('active');
+  $(this).addClass('active');
   $("#right").hide();
   $("#right").text('');
   my_item = $(this).attr('my_item');
@@ -38,5 +40,5 @@ displayGists = function() {
 
 $(function() {
   $("body").on('click', "#p", listGroupLabels);
-  return $("body").on('click', "li", displayGists);
+  return $("body").on('click', "a", displayGists);
 });
