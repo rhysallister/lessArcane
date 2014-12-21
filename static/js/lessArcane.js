@@ -1,7 +1,5 @@
 (function() {
-  var allthedata, displayGists, listGroupLabels;
-
-  allthedata = data;
+  var displayGists, listGroupLabels;
 
   listGroupLabels = function() {
     var c, k, _i, _len, _ref, _results;
@@ -18,22 +16,22 @@
   };
 
   displayGists = function() {
-    var file, gist, gist_id, my_item, _i, _j, _k, _len, _len2, _len3, _ref, _ref2, _ref3;
+    var file, gist, gist_id, my_item, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
     $('.active').removeClass('active');
     $(this).addClass('active');
     $("#right").hide();
     $("#right").text('');
     my_item = $(this).attr('my_item');
-    _ref = allthedata.group.group_labels[my_item].gist_ids;
+    _ref = data.group.group_labels[my_item].gist_ids;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       gist_id = _ref[_i];
-      _ref2 = allthedata.group.gists;
-      for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
-        gist = _ref2[_j];
+      _ref1 = data.group.gists;
+      for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+        gist = _ref1[_j];
         if (gist.unique_id === gist_id) {
-          _ref3 = gist.files;
-          for (_k = 0, _len3 = _ref3.length; _k < _len3; _k++) {
-            file = _ref3[_k];
+          _ref2 = gist.files;
+          for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+            file = _ref2[_k];
             $("#right").append("<pre><code class='language-markup'>" + (Prism.highlight(file.content, Prism.languages.markup)) + "</code></pre> <hr>");
           }
         }
