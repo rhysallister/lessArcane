@@ -1,4 +1,3 @@
-allthedata = data
 listGroupLabels = ->
   $(@).remove()
   c = -1
@@ -12,20 +11,19 @@ displayGists = ->
   $("#right").hide()
   $("#right").text('')
   my_item = $(@).attr('my_item')
-  for gist_id in  allthedata.group.group_labels[my_item].gist_ids
-    for gist in allthedata.group.gists
+
+  for gist_id in  data.group.group_labels[my_item].gist_ids
+    for gist in data.group.gists
       if gist.unique_id is gist_id
+        $("#right").append("<p>#{gist.description}</p>")
         for file in gist.files
-          $("#right").append("<pre><code class='language-markup'>#{Prism.highlight(file.content,Prism.languages.markup)}</code></pre> <hr>")
+          gist_content = file.content
+          gist_file = Prism.highlight(gist_content,Prism.languages.markup)
+          $("#right").append("<pre><code class='language-markup'>#{gist_file}</code></pre>")
+        $("#right").append("<hr>")
+  
   $("#right").fadeIn()
-
-
-
-  $("#right").fadeIn()
-
 
 $ ->
   $("body").on('click',"#p", listGroupLabels)
   $("body").on('click',"a", displayGists)
-  
-
