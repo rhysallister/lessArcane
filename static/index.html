@@ -13,36 +13,47 @@
 </head>
 
 <body>
+ <section class="navbar-fixed-top">
+<div class="container"><div class="row"><h2 class="pull-left">lessArcane</h2></div></div>
+<hr>
 <div class="container">
  <div class="row">
-  <button id="p" type="button" class="btn btn-success btn-lg mehelp">Ready? Click me to start.</button>
+  <div id="gist-url" class="input-group input-group-lg">
+   <input id="url-input" type="text" class="form-control col-xs-6 simplebox" 
+   style="padding-left: 0px;width: 60%;" 
+   placeholder="The URL for the JSON goes here. You can drag a file here too.">
+   <input id="informant" align="right" type="text" class="form-control col-xs-6 simplebox"
+   style="padding-left: 0px;width: 40%; text-align: right;padding-right:0px" 
+   placeholder="">
+  
+  </div>
  </div>
 </div>
-
 <hr> 
- <div class="container">
-   <div class="row">
-     
-     
-     <div id="left" class="col-md-4">
-       <div id="leftlist" class="list-group"></div>
-     </div>
-     <div id="right" class="col-md-8"></div>
-                      
-     
-   </div>
-   
+</section>
 
- </div>
-</div>
+
+<div class="container" > <div class="row" >
+<div id="leftlist" class="list-group3" style="margin-top: 125px"></div>
+</div></div>
+
+<div id="all" class="container" style="margin-top: 125px">
+<div id="right" class="row"></div></div>
+
+
+
 </body>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/dropzone.min.js"></script>-->
 
-<script src="js/sample.json"></script>
+
+<!--<scrip src="https://rawgit.com/bgrins/filereader.js/master/filereader.js"></scrip>-->
+<!--<script src="js/sample.json"></script>-->
 <script src="js/lessArcane.js"></script>
+
 <script src="js/prism.js" data-manual></script>
 
 
